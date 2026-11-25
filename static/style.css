@@ -1,0 +1,368 @@
+
+/* ==============================
+   GLOBAL STYLES
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0b1020;
+    color: #f1f5f9;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: #111827;
+    border-bottom: 1px solid #263247;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.logo span {
+    color: #60a5fa;
+}
+
+.header-tag {
+    color: #93c5fd;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* ==============================
+   MAIN CONTAINER
+============================== */
+
+.container {
+    width: 85%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* ==============================
+   HERO SECTION
+============================== */
+
+.hero {
+    padding: 75px 0 45px;
+}
+
+.subtitle {
+    color: #60a5fa;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin: 18px 0;
+}
+
+.hero h1 span {
+    color: #60a5fa;
+}
+
+.description {
+    color: #94a3b8;
+    max-width: 600px;
+    font-size: 16px;
+}
+
+/* ==============================
+   MESSAGE
+============================== */
+
+.message {
+    background: #172c46;
+    border: 1px solid #3b82f6;
+    color: #bfdbfe;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* ==============================
+   UPLOAD SECTION
+============================== */
+
+.upload-section,
+.clean-section,
+.preview-section {
+    background: #111827;
+    border: 1px solid #263247;
+    border-radius: 16px;
+    padding: 30px;
+    margin: 25px 0;
+}
+
+.upload-section h2,
+.dashboard h2,
+.clean-section h2,
+.preview-section h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.upload-section p {
+    color: #94a3b8;
+    margin-bottom: 22px;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 15px;
+    background: #0b1020;
+    border: 1px dashed #475569;
+    border-radius: 10px;
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+/* ==============================
+   BUTTONS
+============================== */
+
+.primary-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 22px;
+    background: #059669;
+    color: white;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    background: #047857;
+}
+
+/* ==============================
+   DASHBOARD CARDS
+============================== */
+
+.dashboard {
+    margin: 35px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.stat-card {
+    background: #111827;
+    border: 1px solid #263247;
+    border-radius: 14px;
+    padding: 25px 20px;
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: #60a5fa;
+}
+
+.stat-card h3 {
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.stat-card p {
+    font-size: 32px;
+    font-weight: bold;
+    color: #60a5fa;
+    margin-top: 10px;
+}
+
+.stat-card.warning p {
+    color: #fbbf24;
+}
+
+.stat-card.danger p {
+    color: #f87171;
+}
+
+/* ==============================
+   CLEANING SECTION
+============================== */
+
+.clean-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.clean-section label {
+    color: #cbd5e1;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+select {
+    width: 100%;
+    padding: 13px;
+    background: #0b1020;
+    color: white;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+select:focus {
+    border-color: #60a5fa;
+}
+
+.clean-section .primary-btn {
+    margin-top: 15px;
+}
+
+/* ==============================
+   DATASET TABLE
+============================== */
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+th {
+    background: #1e293b;
+    color: #93c5fd;
+    text-align: left;
+    padding: 15px;
+}
+
+td {
+    padding: 13px 15px;
+    border-bottom: 1px solid #263247;
+    color: #cbd5e1;
+}
+
+tr:hover td {
+    background: #172033;
+}
+
+/* ==============================
+   RESET SECTION
+============================== */
+
+.reset-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.reset-section a {
+    color: #f87171;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.reset-section a:hover {
+    text-decoration: underline;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    text-align: center;
+    padding: 30px 15px;
+    margin-top: 60px;
+    background: #111827;
+    border-top: 1px solid #263247;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 900px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 92%;
+    }
+
+    .header {
+        padding: 18px 5%;
+    }
+
+    .hero {
+        padding-top: 45px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .upload-section,
+    .clean-section,
+    .preview-section {
+        padding: 20px;
+    }
+
+    .header-tag {
+        font-size: 9px;
+    }
+}

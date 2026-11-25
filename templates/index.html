@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clean Dataset | Data Cleaning Tool</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">Clean<span>Dataset</span></div>
+        <div class="header-tag">DATA QUALITY TOOL</div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <p class="subtitle">DATA CLEANING PLATFORM</p>
+
+            <h1>Clean Your Dataset<br>
+                <span>With Confidence.</span>
+            </h1>
+
+            <p class="description">
+                Upload, analyze and clean your datasets with ease.
+                Remove duplicates and handle missing values.
+            </p>
+        </section>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <section class="upload-section">
+
+            <h2>Upload Your Dataset</h2>
+
+            <p>Supported formats: CSV and Excel (.xlsx)</p>
+
+            <form action="/upload"
+                  method="POST"
+                  enctype="multipart/form-data">
+
+                <input type="file"
+                       name="file"
+                       accept=".csv,.xlsx"
+                       required>
+
+                <button type="submit" class="primary-btn">
+                    Upload Dataset
+                </button>
+
+            </form>
+
+        </section>
+
+        {% if stats %}
+
+        <section class="dashboard">
+
+            <h2>Dataset Overview</h2>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <h3>Total Rows</h3>
+                    <p>{{ stats.rows }}</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Total Columns</h3>
+                    <p>{{ stats.columns }}</p>
+                </div>
+
+                <div class="stat-card warning">
+                    <h3>Missing Values</h3>
+                    <p>{{ stats.missing }}</p>
+                </div>
+
+                <div class="stat-card danger">
+                    <h3>Duplicate Rows</h3>
+                    <p>{{ stats.duplicates }}</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="clean-section">
+
+            <h2>Clean Your Dataset</h2>
+
+            <form action="/clean" method="POST">
+
+                <label for="action">Select Cleaning Operation</label>
+
+                <select name="action" id="action" required>
+                    <option value="duplicates">
+                        Remove Duplicate Rows
+                    </option>
+
+                    <option value="missing">
+                        Handle Missing Values
+                    </option>
+                </select>
+
+                <label for="method">Missing Value Method</label>
+
+                <select name="method" id="method">
+                    <option value="drop">Remove Rows</option>
+                    <option value="mean">Fill with Mean</option>
+                    <option value="median">Fill with Median</option>
+                    <option value="mode">Fill with Mode</option>
+                </select>
+
+                <button type="submit" class="primary-btn">
+                    Clean Dataset
+                </button>
+
+            </form>
+
+            <a href="/download" class="download-btn">
+                Download Cleaned Dataset
+            </a>
+
+        </section>
+
+        <section class="preview-section">
+
+            <h2>Dataset Preview</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            {% for column in columns %}
+                                <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for row in preview %}
+                            <tr>
+                                {% for column in columns %}
+                                    <td>{{ row[column] }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <div class="reset-section">
+            <a href="/clear">Clear Dataset / Reset</a>
+        </div>
+
+        {% endif %}
+
+    </main>
+
+    <footer>
+        <p>CleanDataset | Smart Data Cleaning Application</p>
+        <p>Built with Python, Flask and Pandas</p>
+    </footer>
+
+</body>
+</html>
